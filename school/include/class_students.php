@@ -198,7 +198,7 @@ foreach($students as $student):?>
             </div>
             <div class="btn-row">
                 <a class="edit-btn" href="?inc=edit_student&num=<?= $student['school_num']; ?>">編輯</a>
-                <a class="del-btn" href="">刪除</a>
+                <a class="del-btn" href="?inc=delete_student&num=<?= $student['school_num']; ?>">刪除</a>
             </div>
         </div>
     </div>
