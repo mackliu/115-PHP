@@ -1,4 +1,4 @@
-<?php include_once './include/db.php'; ?>
+<?php include_once './include/db_conn.php'; ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -335,7 +335,7 @@
     <!-- 頂部導航欄 -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="index.php" class="nav-logo">
                 <span>🏫</span>
                 翠園高中
             </a>
@@ -345,8 +345,14 @@
                 <li><a href="#contact">聯絡方式</a></li>
             </ul>
             <div class="nav-buttons">
-                <a href="login.php" class="btn-login">登入</a>
-                <a href="register.php" class="btn-register">註冊</a>
+                <?php 
+                if(isset($_SESSION['login'])):
+                ?>
+                    <a href="admin.php" class="btn-login">管理後台</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn-login">登入</a>
+                    <a href="register.php" class="btn-register">註冊</a>
+                <?php endif;?>
             </div>
         </div>
     </nav>

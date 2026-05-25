@@ -136,7 +136,7 @@ a.del-btn {
 
 <?php 
 //從class_student 中找到班級學生的學號
-include "db_conn.php";
+include_once "db_conn.php";
 //$sql="select * from `class_student` where `class_code`='{$_GET['code']}'";
 $sql="select 
              `students`.`school_num`,

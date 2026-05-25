@@ -1,3 +1,4 @@
+<?php include_once "include/db_conn.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -337,7 +338,7 @@
     <!-- 頂部導航欄 -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="index.php" class="nav-logo">
                 <span>🏫</span>
                 翠園高中
             </a>

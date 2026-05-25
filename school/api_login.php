@@ -1,6 +1,5 @@
 <?php 
-$dsn="mysql:host=localhost;charset=utf8;dbname=school";
-$pdo=new PDO($dsn,'root','');
+include_once "include/db_conn.php";
 
 $sql="select count(*) from `members` where `account`='{$_POST['account']}' AND `password`='{$_POST['password']}'";
 
@@ -19,6 +18,8 @@ $result=$pdo->query($sql)->fetchColumn();
         } */
         if($result==1){
             echo "登入成功";
+            $_SESSION['login']=1;
+            $_SESSION['account']=$_POST['account'];
             header("location:admin.php");
         }else{
             echo "登入失敗";

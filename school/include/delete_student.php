@@ -1,4 +1,4 @@
-<?php include "./include/db_conn.php"; ?>
+
     <style>
         .delete-container {
             background-color: white;
