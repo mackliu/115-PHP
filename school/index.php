@@ -1,3 +1,4 @@
+<?php include_once './include/db.php'; ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
