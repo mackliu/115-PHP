@@ -131,9 +131,9 @@ a.del-btn {
     transform:translateY(-5px);
 }
 .page-nav {
-    display: block;
-    margin: auto;
-    width: 80%;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
 }
 
 .page-nav a {
@@ -146,6 +146,18 @@ a.del-btn {
     width: 36px;
     height: 36px;
     text-align: center;
+    color:blue;
+}
+
+.page-nav a:hover{
+    text-decoration:underline;
+    background:#ddd;
+}
+.page-nav .now-page{
+    background:#6c63ff;
+    color:white;
+    border-color:#6c63ff;
+    font-weight: 600;
 }
 </style>
 
@@ -184,19 +196,54 @@ $students=$pdo->query($sql)->fetchAll();
 
 <div class='page-nav'>
 <?php 
-
+    //最左邊的上一頁
     if($now_page-1 >0){
         $perv=$now_page-1;
         echo "<a href='?inc=students&page=$perv'> < </a>";
+    }else{
+        echo "<a href='javascript:return false;'> < </a>";
     }
 
-    for($i=1;$i<=$pages;$i++){
-        echo "<a href='?inc=students&page=$i'> $i </a>";
+    echo "<div>";
+    if($now_page > 3){
+        echo "<a href='?inc=students&page=1'> 1 </a>";
+        echo "<span> ... </span>";
     }
 
+    $start_page=$now_page-2;
+    $end_page=$now_page+2;
+
+    if($start_page <=1){
+        $start_page=1;
+        $end_page=min(5,$pages);
+    }
+
+    if($end_page > $pages){
+        $start_page=max(1,$pages-4);
+        $end_page=$pages;
+    }
+        
+    for($i=$start_page;$i<=$end_page;$i++){
+        
+        $now_class=($now_page==$i)?"now-page":"";
+      
+       echo "<a href='?inc=students&page=$i' class='$now_class'> $i </a>";
+    }
+
+    if($now_page < $pages-2){
+        echo "<span> ... </span>";
+        echo "<a href='?inc=students&page=$pages'> $pages </a>";
+    }
+
+    echo "</div>";
+
+    //最右邊的下一頁
     if($now_page+1 <=$pages){
         $next=$now_page+1;
         echo "<a href='?inc=students&page=$next'> > </a>";
+    }else{
+        echo "<a href='javascript:return false;'> > </a>";
+
     }
     ?>
 </div>
@@ -251,19 +298,54 @@ foreach($students as $student):?>
 </div>
 <div class='page-nav'>
 <?php 
-
+    //最左邊的上一頁
     if($now_page-1 >0){
         $perv=$now_page-1;
         echo "<a href='?inc=students&page=$perv'> < </a>";
+    }else{
+        echo "<a href='javascript:return false;'> < </a>";
     }
 
-    for($i=1;$i<=$pages;$i++){
-        echo "<a href='?inc=students&page=$i'> $i </a>";
+    echo "<div>";
+    if($now_page > 3){
+        echo "<a href='?inc=students&page=1'> 1 </a>";
+        echo "<span> ... </span>";
     }
 
+    $start_page=$now_page-2;
+    $end_page=$now_page+2;
+
+    if($start_page <=1){
+        $start_page=1;
+        $end_page=min(5,$pages);
+    }
+
+    if($end_page > $pages){
+        $start_page=max(1,$pages-4);
+        $end_page=$pages;
+    }
+        
+    for($i=$start_page;$i<=$end_page;$i++){
+        
+        $now_class=($now_page==$i)?"now-page":"";
+      
+       echo "<a href='?inc=students&page=$i' class='$now_class'> $i </a>";
+    }
+
+    if($now_page < $pages-2){
+        echo "<span> ... </span>";
+        echo "<a href='?inc=students&page=$pages'> $pages </a>";
+    }
+
+    echo "</div>";
+
+    //最右邊的下一頁
     if($now_page+1 <=$pages){
         $next=$now_page+1;
         echo "<a href='?inc=students&page=$next'> > </a>";
+    }else{
+        echo "<a href='javascript:return false;'> > </a>";
+
     }
     ?>
 </div>
