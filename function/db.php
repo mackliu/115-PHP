@@ -1,9 +1,10 @@
 <?php 
+$dsn="mysql:host=localhost;dbname=school;charset=utf8";
+$pdo=new PDO($dsn,'root','');
 
 function all($table){
     //連線資料庫
-    $dsn="mysql:host=localhost;dbname=school;charset=utf8";
-    $pdo=new PDO($dsn,'root','');
+    global $pdo;
     $rows=$pdo->query("SELECT * FROM $table")->fetchAll(PDO::FETCH_ASSOC);
 
     return $rows; //整個$table 的資料
@@ -11,8 +12,7 @@ function all($table){
 
 function find($table,$id){
     //連線資料庫
-    $dsn="mysql:host=localhost;dbname=school;charset=utf8";
-    $pdo=new PDO($dsn,'root','');
+    global $pdo;
 
     if(!is_numeric($id)){
         echo "ID 必須為數字";
