@@ -30,7 +30,7 @@ function find($table,$id){
  return $row;
 }
 
-function update($table,$id,$cols){
+function update($table,$arg,$cols){
     global $pdo;
 
     $sql="UPDATE $table SET ";
@@ -40,9 +40,19 @@ function update($table,$id,$cols){
     }
      
     $sql .= join(",",$tmp);
-    $sql .= " WHERE `id`='$id'";
 
-    //echo $sql;
+
+    if(is_numeric($arg)){
+        $sql .= " WHERE `id`='$arg'";
+    }else{
+        $tmp=[];
+        foreach($arg as $key=>$val){
+            $tmp[]="`$key`='$val'";
+        }
+        $sql .= " WHERE ".join(" AND ", $tmp);
+    }
+
+    echo $sql;
  return $pdo->exec($sql);
 }
 
@@ -56,7 +66,7 @@ echo "<pre>";
  print_r($row);
  echo "</pre>"; */
 
- update('status',4,['note'=>'持有國中修(結)業證明書者(修畢三年以上)']);
+ update('students',['dept'=>'5'],['dept'=>'1']);
 ?>
 
 
