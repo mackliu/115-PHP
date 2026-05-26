@@ -5,7 +5,7 @@ include_once "db_conn.php";
 print_r($_POST['name']);
 echo "</pre>"; */
 
-$sql_student="INSERT INTO `students`(`school_num`, 
+/* $sql_student="INSERT INTO `students`(`school_num`, 
                          `name`, 
                          `birthday`, 
                          `uni_id`, 
@@ -33,10 +33,19 @@ $sql_class="INSERT INTO `class_student`(
                     VALUES ('{$_POST['school_num']}',
                             '{$_POST['class_code']}',
                             '{$_POST['seat_num']}',
-                            '2000')";
+                            '2000')"; */
 
-$pdo->exec($sql_student);
-$pdo->exec($sql_class);
+/* $pdo->exec($sql_student);
+$pdo->exec($sql_class); */
+$class_code=$_POST['class_code'];
+$data['school_num']=$_POST['school_num'];
+$data['class_code']=$_POST['class_code'];
+$data['seat_num']=$_POST['seat_num'];
+$data['year']=2000;
+unset($_POST['class_code'],$_POST['seat_num']);
 
-header("location:../admin.php?inc=class_students&code={$_POST['class_code']}");
+insert('students',$_POST);
+insert('class_student',$data);
+
+header("location:../admin.php?inc=class_students&code={$class_code}");
 ?>
