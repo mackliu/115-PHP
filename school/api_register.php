@@ -1,6 +1,5 @@
 <?php 
-$dsn="mysql:host=localhost;charset=utf8;dbname=super";
-$pdo=new PDO($dsn,'root','');
+include_once "include/db_conn.php";
 
 /* echo "<pre>";
 print_r($_POST);

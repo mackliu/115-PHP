@@ -55,7 +55,7 @@
 
             <div class="form-group">
                 <label for="tel">電話 *</label>
-                <input type="tel" id="tel" name="tel" placeholder="請輸入電話號碼" required >
+                <input type="text" id="tel" name="tel" placeholder="請輸入電話號碼" required >
             </div>
 
             <div class="form-group">

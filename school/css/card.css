@@ -208,3 +208,105 @@
         padding: 5px;
     }
 }
+
+/* ========================================
+   a 標籤按鈕樣式（編輯、刪除）
+   ======================================== */
+
+a.edit-btn {
+    padding: 4px 16px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background: lightgreen;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    color: #333;
+}
+
+a.edit-btn:hover {
+    padding: 4px 24px;
+    box-shadow: 0 2px 8px rgba(144, 238, 144, 0.5);
+    transform: translateY(-1px);
+}
+
+a.del-btn {
+    padding: 4px 16px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background: lightcoral;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    color: #333;
+}
+
+a.del-btn:hover {
+    padding: 4px 24px;
+    box-shadow: 0 2px 8px rgba(240, 128, 128, 0.5);
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   新增按鈕
+   ======================================== */
+
+.add-btn {
+    display: inline-block;
+    padding: 8px 24px;
+    background: lightskyblue;
+    margin: 20px;
+    border: 1px solid lightseagreen;
+    border-radius: 24px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.add-btn:hover {
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ========================================
+   分頁導航
+   ======================================== */
+
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.page-nav a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 2px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    color: blue;
+    transition: all 0.3s ease;
+}
+
+.page-nav a:hover {
+    text-decoration: underline;
+    background: #ddd;
+}
+
+.page-nav .now-page {
+    background: #6c63ff;
+    color: white;
+    border-color: #6c63ff;
+    font-weight: 600;
+}

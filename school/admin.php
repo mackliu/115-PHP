@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/admin-layout.css">
-    <link rel="stylesheet" href="css/main-layout.css">    
+    <link rel="stylesheet" href="css/main-layout.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/modal.css">    
 </head>
 <body>
     <!-- 頂部導航欄 -->
