@@ -68,6 +68,23 @@ return $pdo->exec($sql);
 }
 
 
+function delete($table,$arg){
+    global $pdo;
+    $sql="DELETE FROM `$table` ";
+    if(is_numeric($arg)){
+        $sql .=" WHERE `id`='$arg'";
+    }else{
+        $tmp=[];
+        foreach($arg as $key => $val ){
+            $tmp[]="`$key`='$val'";
+        }
+        $sql .=" WHERE ".join(" AND ",$tmp);
+    }
+   // echo $sql;
+    return $pdo->exec($sql);
+
+}
+
 
 
 /* echo "<pre>";
@@ -81,8 +98,10 @@ echo "<pre>";
  echo "</pre>"; */
 
  //update('students',['dept'=>'5'],['dept'=>'1']);
- $arg=['code'=>'101','status'=>'不想升學','note'=>"不想升學了，想去工作了"];
- insert('status',$arg)
+/*  $arg=['code'=>'101',' status'=>'不想升學','note'=>"不想升學了，想去工作了"];
+/*  insert('status',$arg) */
+
+//echo delete('students',['dept'=>'1']);
 ?>
 
 
