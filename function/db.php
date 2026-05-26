@@ -52,9 +52,23 @@ function update($table,$arg,$cols){
         $sql .= " WHERE ".join(" AND ", $tmp);
     }
 
-    echo $sql;
+    //echo $sql;
  return $pdo->exec($sql);
 }
+
+
+function insert($table,$arg){
+    global $pdo;
+
+    $keys=array_keys($arg);
+
+    $sql="INSERT INTO $table (`" . join("`,`",$keys) . "`) VALUES ('" . join("','",$arg) . "')";
+    echo $sql;
+return $pdo->exec($sql);
+}
+
+
+
 
 /* echo "<pre>";
  print_r(all('status'));
@@ -66,7 +80,9 @@ echo "<pre>";
  print_r($row);
  echo "</pre>"; */
 
- update('students',['dept'=>'5'],['dept'=>'1']);
+ //update('students',['dept'=>'5'],['dept'=>'1']);
+ $arg=['code'=>'101','status'=>'不想升學','note'=>"不想升學了，想去工作了"];
+ insert('status',$arg)
 ?>
 
 
