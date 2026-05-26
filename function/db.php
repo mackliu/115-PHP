@@ -30,15 +30,33 @@ function find($table,$id){
  return $row;
 }
 
+function update($table,$id,$cols){
+    global $pdo;
+
+    $sql="UPDATE $table SET ";
+    $tmp=[];
+    foreach($cols as $key => $val){
+        $tmp[]="`$key`='$val'";
+    }
+     
+    $sql .= join(",",$tmp);
+    $sql .= " WHERE `id`='$id'";
+
+    //echo $sql;
+ return $pdo->exec($sql);
+}
+
 /* echo "<pre>";
  print_r(all('status'));
  echo "</pre>"; */
 
-$rows=all('status');
+/* $rows=all('status');
 $row=find('status',1);
 echo "<pre>";
  print_r($row);
- echo "</pre>";
+ echo "</pre>"; */
+
+ update('status',4,['note'=>'持有國中修(結)業證明書者(修畢三年以上)']);
 ?>
 
 
